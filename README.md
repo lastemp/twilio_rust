@@ -6,12 +6,9 @@ Server-side SDKs (or Server-side helper libraries) make it easy for you to use T
 The sdk has below listed dependencies:
 - [Serde](https://github.com/serde-rs/serde) for serializing and deserializing Rust data structures
 - [Reqwest](https://github.com/seanmonstar/reqwest) Rust HTTP Client
-- [serde_json](https://github.com/serde-rs/json) for serializing and deserializing Rust data structures
-- [serde_urlencoded](https://github.com/nox/serde_urlencoded) for serialising to and deserialising from the application/x-www-form-urlencoded format
 - [chrono](https://github.com/chronotope/chrono) provides all functionality needed to do correct operations on dates and times
 - [base64](https://github.com/marshallpierce/rust-base64) Decode from Base64 format or encode into it
 - [tokio](https://github.com/tokio-rs/tokio) A runtime for writing reliable, asynchronous applications
-- [mysql](https://github.com/blackbeam/rust-mysql-simple) MySql database driver
 
 ## installation
 
