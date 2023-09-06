@@ -1,4 +1,4 @@
-use crate::models::models::{ResultMessage, ResultMultipleMessage};
+use crate::models::models::{ResultMediaMessage, ResultMultipleMediaMessage};
 use crate::util::util::build_headers;
 use reqwest::StatusCode;
 
@@ -6,7 +6,7 @@ pub async fn fetch(
     account_sid: String,
     auth_token: String,
     api_url: String,
-) -> std::result::Result<ResultMessage, String> {
+) -> std::result::Result<ResultMediaMessage, String> {
     let client = reqwest::Client::new();
     let res = client
         .get(api_url)
@@ -21,7 +21,7 @@ pub async fn fetch(
         }
         Ok(response) => match response.status() {
             StatusCode::CREATED => {
-                match response.json::<ResultMessage>().await {
+                match response.json::<ResultMediaMessage>().await {
                     Ok(result_message) => {
                         // Handle success case
                         return Ok(result_message);
@@ -45,7 +45,7 @@ pub async fn fetch_multiple(
     account_sid: String,
     auth_token: String,
     api_url: String,
-) -> std::result::Result<ResultMultipleMessage, String> {
+) -> std::result::Result<ResultMultipleMediaMessage, String> {
     let client = reqwest::Client::new();
     let res = client
         .get(api_url)
@@ -60,7 +60,7 @@ pub async fn fetch_multiple(
         }
         Ok(response) => match response.status() {
             StatusCode::CREATED => {
-                match response.json::<ResultMultipleMessage>().await {
+                match response.json::<ResultMultipleMediaMessage>().await {
                     Ok(result_message) => {
                         // Handle success case
                         return Ok(result_message);
