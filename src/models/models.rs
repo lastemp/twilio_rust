@@ -227,7 +227,7 @@ pub struct ResultMessage {
     date_sent: Option<String>,
     date_updated: Option<String>,
     direction: Option<String>,
-    error_code: Option<u32>,
+    error_code: Option<u16>,
     error_message: Option<String>,
     from: Option<String>,
     messaging_service_sid: Option<String>,
@@ -246,14 +246,14 @@ pub struct ResultMessage {
 #[derive(Deserialize, Debug)]
 #[allow(non_snake_case)]
 pub struct ResultMultipleMessage {
-    end: Option<u32>,
+    end: Option<u16>,
     first_page_uri: Option<String>,
     next_page_uri: Option<String>,
-    page: Option<u32>,
-    page_size: Option<u32>,
+    page: Option<u16>,
+    page_size: Option<u16>,
     previous_page_uri: Option<String>,
-    messages: Vec<ResultMessage>,
-    start: Option<u32>,
+    messages: Vec<ResultMediaMessage>,
+    start: Option<u16>,
     uri: Option<String>,
 }
 
@@ -272,16 +272,16 @@ pub struct ResultMediaMessage {
 #[derive(Deserialize, Debug)]
 #[allow(non_snake_case)]
 pub struct ResultMultipleMediaMessage {
-    end: Option<u32>,
+    end: Option<u16>,
     first_page_uri: Option<String>,
     last_page_uri: Option<String>,
     media_list: Vec<ResultMediaMessage>,
     next_page_uri: Option<String>,
-    num_pages: Option<u32>,
-    page: Option<u32>,
-    page_size: Option<u32>,
+    num_pages: Option<u16>,
+    page: Option<u16>,
+    page_size: Option<u16>,
     previous_page_uri: Option<String>,
-    start: Option<u32>,
-    total: Option<u32>,
+    start: Option<u16>,
+    total: Option<u16>,
     uri: Option<String>,
 }

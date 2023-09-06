@@ -18,10 +18,16 @@ cargo install --git https://github.com/lastemp/twilio_rust
 
 ## Usage
 
-Please find below code samples and full working examples:
+Please find below information:
 
-   - See [the code samples](./code_samples/) for more info.	
    - See [the examples](./examples/) for full working examples.
    
-NB:
-The code samples and working examples have not yet been uploaded!
+1. Create a `.env` file in the [the example_1](./examples/example_1/) directory:
+
+   ```ini
+   ACCOUNT_SID=***
+   AUTH_TOKEN=***
+   ```
+
+   Update "ACCOUNT_SID" and "AUTH_TOKEN" with the correct values.   
+ 

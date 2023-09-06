@@ -1,9 +1,5 @@
-mod sms {
-    pub mod create_sms;
-}
-
-mod whatsapp {
-    pub mod create_whatsapp;
+mod create_message {
+    pub mod create_message;
 }
 
 mod fetch_message {
@@ -72,8 +68,8 @@ impl Twilio {
         })
     }
 
-    // SMS
-    pub async fn create_sms(
+    // SMS, Whatsapp
+    pub async fn create_message(
         &self,
         _message: ChannelMessage,
     ) -> std::result::Result<ResultMessage, String> {
@@ -84,7 +80,7 @@ impl Twilio {
         let auth_token = &self.auth_token;
         let api_url = &self.message_url;
 
-        let _output = sms::create_sms::create(
+        let _output = create_message::create_message::create(
             _sender,
             _content,
             _to,
@@ -218,32 +214,6 @@ impl Twilio {
             account_sid.to_string(),
             auth_token.to_string(),
             api_url,
-        );
-
-        let _result = _output.await;
-
-        _result
-    }
-
-    // Whatsapp
-    pub async fn create_whatsapp(
-        &self,
-        _message: ChannelMessage,
-    ) -> std::result::Result<ResultMessage, String> {
-        let _sender = _message.get_sender();
-        let _content = _message.get_content();
-        let _to = _message.get_recipient();
-        let account_sid = &self.account_sid;
-        let auth_token = &self.auth_token;
-        let api_url = &self.message_url;
-
-        let _output = whatsapp::create_whatsapp::create(
-            _sender,
-            _content,
-            _to,
-            account_sid.to_string(),
-            auth_token.to_string(),
-            api_url.to_string(),
         );
 
         let _result = _output.await;
@@ -416,7 +386,7 @@ mod tests {
             let _result = ChannelMessage::new(_sender, _content, _to);
 
             if let Ok(_message) = _result {
-                let _output = _twilio.create_sms(_message);
+                let _output = _twilio.create_message(_message);
                 let _result = _output.await;
                 assert_eq!(_result.is_ok(), true);
             }
@@ -447,7 +417,7 @@ mod tests {
             let _result = ChannelMessage::new(_sender, _content, _to);
 
             if let Ok(_message) = _result {
-                let _output = _twilio.create_whatsapp(_message);
+                let _output = _twilio.create_message(_message);
                 let _result = _output.await;
                 assert_eq!(_result.is_ok(), true);
             }
