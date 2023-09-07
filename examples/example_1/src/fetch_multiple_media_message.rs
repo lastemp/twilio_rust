@@ -19,9 +19,5 @@ pub async fn fetch_multiple_media_message(account_sid: String, auth_token: Strin
                 println!("Unexpected error occured during processing");
             }
         }
-    } else if let Err(e) = _result {
-        println!("{:?}", e);
-    } else {
-        println!("Unexpected error occured during processing");
     }
 }

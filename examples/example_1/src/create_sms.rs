@@ -31,9 +31,5 @@ pub async fn create_sms_message(account_sid: String, auth_token: String) {
                 println!("Unexpected error occured during processing");
             }
         }
-    } else if let Err(e) = _result {
-        println!("{:?}", e);
-    } else {
-        println!("Unexpected error occured during processing");
     }
 }

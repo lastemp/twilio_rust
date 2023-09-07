@@ -18,7 +18,7 @@ async fn main() {
     let auth_token = env::var("AUTH_TOKEN").expect("AUTH_TOKEN is not set in .env file");
     // PART A: TESTS
     // sms
-    let x = create_sms::create_sms_message(account_sid, auth_token);
+    //let x = create_sms::create_sms_message(account_sid, auth_token);
 
     // whatsapp
     // let x = create_whatsapp::create_whatsapp_message(account_sid, auth_token);
@@ -32,7 +32,7 @@ async fn main() {
     // let x = update_message::update_message(account_sid, auth_token);
 
     // let x = delete_message::delete_message(account_sid, auth_token);
-    // let x = delete_media_message::delete_media_message(account_sid, auth_token);
+    let x = delete_media_message::delete_media_message(account_sid, auth_token);
 
     x.await;
 
@@ -72,10 +72,6 @@ async fn main() {
                 println!("Unexpected error occured during processing");
             }
         }
-    } else if let Err(e) = _result {
-        println!("{:?}", e);
-    } else {
-        println!("Unexpected error occured during processing");
     }
     */
 }
